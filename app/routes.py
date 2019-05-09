@@ -20,6 +20,11 @@ def login():
     return render_template('login.html')
 
 
+@app.route('/logout')
+def logout():
+    return render_template('home.html')
+
+
 @app.route('/profile_page')
 def profile_page():
     return render_template('profile_page.html')
