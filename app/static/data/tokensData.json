@@ -1,0 +1,404 @@
+{
+  "tokens": [
+    {
+      "address": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
+      "name": "Crypto.com Chain",
+      "decimals": "8",
+      "symbol": "CRO",
+      "totalSupply": "100,000,000,000",
+      "image": "https://etherscan.io/token/images/cryptocom_28.png"
+    },
+    {
+      "address": "0xd850942ef8811f2a866692a623011bde52a462c1",
+      "name": "VeChain",
+      "decimals": "18",
+      "symbol": "VEN",
+      "totalSupply": "1000000000 ",
+      "image": "https://etherscan.io/token/images/vechain_28.png"
+    },
+    {
+      "address": "0x1985365e9f78359a9B6AD760e32412f4a445E862",
+      "name": "Reputation",
+      "decimals": "18",
+      "symbol": "REP",
+      "totalSupply": "11000000",
+      "image": "https://etherscan.io/token/images/augur.png"
+    },
+    {
+      "address": "0x0000000000085d4780B73119b644AE5ecd22b376",
+      "name": "TrueUSD",
+      "decimals": "18",
+      "symbol": "TUSD",
+      "totalSupply": "20700508161",
+      "image": "https://etherscan.io/token/images/trueusdtoken_28.png?v=2"
+    },
+    {
+      "address": "0x6c6ee5e31d828de241282b9606c8e98ea48526e2",
+      "name": "HoloToken",
+      "decimals": "18",
+      "symbol": "HOT",
+      "totalSupply": "17761943354114",
+      "image": "https://etherscan.io/token/images/holo_28.png"
+    },
+    {
+      "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "name": "ChainLink Token",
+      "decimals": "18",
+      "symbol": "LINK",
+      "totalSupply": "1000000000",
+      "image": "https://etherscan.io/token/images/chainlink_28_2.png"
+    },
+    {
+      "address": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+      "name": "Paxos Standard",
+      "decimals": "18",
+      "symbol": "PAX",
+      "totalSupply": "16073703903",
+      "image": "https://etherscan.io/token/images/paxos_28_2.png"
+    },
+    {
+      "address": "0xb5a5f22694352c15b00323844ad545abb2b11028",
+      "name": "ICON",
+      "decimals": "18",
+      "symbol": "ICX",
+      "totalSupply": "40022874",
+      "image": "https://etherscan.io/token/images/iconfoundation_28_2.png"
+    },
+    {
+      "address": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
+      "name": "Zilliqa",
+      "decimals": "12",
+      "symbol": "ZIL",
+      "totalSupply": "9381111253",
+      "image": "https://etherscan.io/token/images/zilliqa_28_2.png"
+    },
+    {
+      "address": "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+      "name": "DAI",
+      "decimals": "18",
+      "symbol": "DAI",
+      "totalSupply": "90158009184974015811290320",
+      "image": "https://etherscan.io/token/images/dai_stablecoin.png"
+    },
+    {
+      "address": "0xfa1a856cfa3409cfa145fa4e20eb270df3eb21ab",
+      "name": "IOSToken",
+      "decimals": "18",
+      "symbol": "IOST",
+      "totalSupply": "21000000000",
+      "image": "https://etherscan.io/token/images/iost_28.png"
+    },
+    {
+      "address": "0x039b5649a59967e3e936d7471f9c3700100ee1ab",
+      "name": "Kucoin Shares",
+      "decimals": "6",
+      "symbol": "KCS",
+      "totalSupply": "179659415",
+      "image": "https://etherscan.io/token/images/kucoin_28.png"
+    },
+    {
+      "address": "0xcb97e65f07da24d46bcdd078ebebd7c6e6e3d750",
+      "name": "Bytom",
+      "decimals": "8",
+      "symbol": "BTM",
+      "totalSupply": "1407000000",
+      "image": "https://etherscan.io/token/images/bytom_28.png"
+    },
+    {
+      "address": "0x9ab165d795019b6d8b3e971dda91071421305e5a",
+      "name": "Aurora",
+      "decimals": "18",
+      "symbol": "AOA",
+      "totalSupply": "10000000000",
+      "image": "https://etherscan.io/token/images/aurora_AOA_28.png"
+    },
+    {
+      "address": "0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74",
+      "name": "Walton",
+      "decimals": "18",
+      "symbol": "WTC",
+      "totalSupply": "70000000",
+      "image": "https://etherscan.io/token/images/walton_28_2.png"
+    },
+    {
+      "address": "0x8e766f57f7d16ca50b4a0b90b88f6468a09b0439",
+      "name": "Maximine Coin",
+      "decimals": "18",
+      "symbol": "MXM",
+      "totalSupply": "16000000000",
+      "image": "https://etherscan.io/token/images/maximine_28.png"
+    },
+    {
+      "address": "0xa15c7ebe1f07caf6bff097d8a589fb8ac49ae5b3",
+      "name": "Pundi X Token",
+      "decimals": "18",
+      "symbol": "NPXS",
+      "totalSupply": "274555193860999996455928086883",
+      "image": "https://etherscan.io/token/images/pundix-28.png"
+    },
+    {
+      "address": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "name": "Basic Attention Token",
+      "decimals": "18",
+      "symbol": "BAT",
+      "totalSupply": "1500000000000000000000000000",
+      "image": "https://etherscan.io/token/images/bat.png"
+    },
+    {
+      "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+      "name": "BNB",
+      "decimals": "18",
+      "symbol": "BNB",
+      "totalSupply": "188345602242498551714388965",
+      "image": "https://etherscan.io/token/images/bnb_28_2.png"
+    },
+    {
+      "address": "0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d",
+      "name": "Aeternity",
+      "decimals": "18",
+      "symbol": "AE",
+      "totalSupply": "273685830",
+      "image": "https://etherscan.io/token/images/aeternity_28_2.png"
+    },
+    {
+      "address": "0xa66daa57432024023db65477ba87d4e7f5f95213",
+      "name": "HuobiPoolToken",
+      "decimals": "18",
+      "symbol": "HPT",
+      "totalSupply": "10000000000",
+      "image": "https://etherscan.io/token/images/huobi_28_2.png"
+    },
+    {
+      "address": "0x6f259637dcd74c767781e37bc6133cd6a68aa161",
+      "name": "HuobiToken",
+      "decimals": "18",
+      "symbol": "HT",
+      "totalSupply": "500000000",
+      "image": "https://etherscan.io/token/images/huobi_28_2.png"
+    },
+    {
+      "address": "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
+      "name": "EnjinCoin",
+      "decimals": "18",
+      "symbol": "ENJ",
+      "totalSupply": "1000000000",
+      "image": "https://etherscan.io/token/images/enjin_28_2.png"
+    },
+    {
+      "address": "0x17aa18a4b64a55abed7fa543f2ba4e91f2dce482",
+      "name": "Insight Chain",
+      "decimals": "18",
+      "symbol": "INB",
+      "totalSupply": "10000000000",
+      "image": "https://etherscan.io/token/images/insightchain28.png"
+    },
+    {
+      "address": "0x3883f5e181fccaf8410fa61e12b59bad963fb645",
+      "name": "Theta Token",
+      "decimals": "18",
+      "symbol": "THETA",
+      "totalSupply": "1000000000",
+      "image": "https://etherscan.io/token/images/theta_28.png"
+    },
+    {
+      "address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+      "name": "StatusNetwork",
+      "decimals": "18",
+      "symbol": "SNT",
+      "totalSupply": "6804870174",
+      "image": "https://etherscan.io/token/images/status.png"
+    },
+    {
+      "address": "0xb63b606ac810a52cca15e44bb630fd42d8d1d83d",
+      "name": "Crypto.com",
+      "decimals": "8",
+      "symbol": "MCO",
+      "totalSupply": "31587682",
+      "image": "https://etherscan.io/token/images/cryptocom_28.png"
+    },
+    {
+      "address": "0xa974c709cfb4566686553a20790685a47aceaa33",
+      "name": "Mixin",
+      "decimals": "18",
+      "symbol": "XIN",
+      "totalSupply": "1000000",
+      "image": "https://etherscan.io/token/images/mixin_28.png"
+    },
+    {
+      "address": "0xa74476443119A942dE498590Fe1f2454d7D4aC0d",
+      "name": "Golem",
+      "decimals": "18",
+      "symbol": "GNT",
+      "totalSupply": "1000000000",
+      "image": "https://etherscan.io/token/images/golem_28.png?v=2"
+    },
+    {
+      "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "name": "USD Coin",
+      "decimals": "6",
+      "symbol": "USDC",
+      "totalSupply": "259875160370000",
+      "image": "https://etherscan.io/token/images/centre-usdc_28.png"
+    },
+    {
+      "address": "0x1602af2c782cc03f9241992e243290fccf73bb13",
+      "name": "Qubitica",
+      "decimals": "18",
+      "symbol": "QBIT",
+      "totalSupply": "10000000",
+      "image": "https://etherscan.io/token/images/qubitica_28_3.png"
+    },
+    {
+      "address": "0x39bb259f66e1c59d5abef88375979b4d20d98022",
+      "name": "WAX Token",
+      "decimals": "8",
+      "symbol": "WAX",
+      "totalSupply": "1850000000",
+      "image": "https://etherscan.io/token/images/wax.png"
+    },
+    {
+      "address": "0x37f04d2c3ae075fad5483bb918491f656b12bdb6",
+      "name": "VestChain",
+      "decimals": "8",
+      "symbol": "VEST",
+      "totalSupply": "8848000000",
+      "image": "https://etherscan.io/token/images/vestchain_28.png"
+    },
+    {
+      "address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
+      "name": "Populous",
+      "decimals": "8",
+      "symbol": "PPT",
+      "totalSupply": "53252246",
+      "image": "https://etherscan.io/token/images/populous_28.png"
+    },
+    {
+      "address": "0xff56cc6b1e6ded347aa0b7676c85ab0b3d08b0fa",
+      "name": "Orbs",
+      "decimals": "18",
+      "symbol": "ORBS",
+      "totalSupply": "10000000000",
+      "image": "https://etherscan.io/token/images/orbs_28.png"
+    },
+    {
+      "address": "0xe0b7927c4af23765cb51314a0e0521a9645f0e2a",
+      "name": "DGD",
+      "decimals": "9",
+      "symbol": "DGD",
+      "totalSupply": "2000000",
+      "image": "https://etherscan.io/token/images/digix_dgd_28.png"
+    },
+    {
+      "address": "0xe41d2489571d322189246dafa5ebde1f4699f498",
+      "name": "0x Protocol Token",
+      "decimals": "18",
+      "symbol": "ZRX",
+      "totalSupply": "1000000000000000000000000000",
+      "image": "https://etherscan.io/token/images/zrx_28.png?v=3"
+    },
+    {
+      "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "name": "Maker",
+      "decimals": "18",
+      "symbol": "MKR",
+      "totalSupply": "1000000000000000000000000",
+      "image": "https://etherscan.io/token/images/mkr-etherscan-35.png"
+    },
+    {
+      "address": "0xbf2179859fc6d5bee9bf9158632dc51678a4100e",
+      "name": "ELF",
+      "decimals": "18",
+      "symbol": "ELF",
+      "totalSupply": "88000000",
+      "image": "https://etherscan.io/token/images/aelf_28.png"
+    },
+    {
+      "address": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+      "name": "Decentraland",
+      "decimals": "18",
+      "symbol": "MANA",
+      "totalSupply": "2534604045",
+      "image": "https://etherscan.io/token/images/decentraland_28.png?v=1"
+    },
+    {
+      "address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+      "name": "OMGToken",
+      "decimals": "18",
+      "symbol": "OMG",
+      "totalSupply": "140245398245132780789239631",
+      "image": "https://etherscan.io/token/images/omise.png"
+    },
+    {
+      "address": "0xbf52f2ab39e26e0951d2a02b49b7702abe30406a",
+      "name": "ODEM Token",
+      "decimals": "18",
+      "symbol": "ODEM",
+      "totalSupply": "396969697",
+      "image": "https://etherscan.io/token/images/odem_28.png"
+    },
+    {
+      "address": "0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466",
+      "name": "AION",
+      "decimals": "8",
+      "symbol": "AION",
+      "totalSupply": "465934586",
+      "image": "https://etherscan.io/token/images/aion-network_28.png"
+    },
+    {
+      "address": "0xb91318f35bdb262e9423bc7c7c2a3a93dd93c92c",
+      "name": "Nuls",
+      "decimals": "18",
+      "symbol": "NULS",
+      "totalSupply": "40000000",
+      "image": "https://etherscan.io/token/images/nuls28.png"
+    },
+    {
+      "address": "0x3597bfd533a99c9aa083587b074434e61eb0a258",
+      "name": "Dent",
+      "decimals": "8",
+      "symbol": "DENT",
+      "totalSupply": "100000000000",
+      "image": "https://etherscan.io/token/images/dentcoin.png"
+    },
+    {
+      "address": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0",
+      "name": "Loom",
+      "decimals": "18",
+      "symbol": "LOOM",
+      "totalSupply": "1000000000",
+      "image": "https://etherscan.io/token/images/loom_28.png"
+    },
+    {
+      "address": "0xef68e7c694f40c8202821edf525de3782458639f",
+      "name": "Loopring",
+      "decimals": "18",
+      "symbol": "LRC",
+      "totalSupply": "1395076054",
+      "image": "https://etherscan.io/token/images/loopring2_28.png"
+    },
+    {
+      "address": "0x056fd409e1d7a124bd7017459dfea2f387b6d5cd",
+      "name": "Gemini dollar",
+      "decimals": "2",
+      "symbol": "GUSD",
+      "totalSupply": "47831688",
+      "image": "https://etherscan.io/token/images/gemini_28.png"
+    },
+    {
+      "address": "0xF29226914595052a04F5AFbe6410D0C3eD707548",
+      "name": "NEXT",
+      "decimals": "18",
+      "symbol": "NET",
+      "totalSupply": "973628555",
+      "image": "https://etherscan.io/token/images/next_28.png"
+    },
+    {
+      "address": "0x5d65D971895Edc438f465c17DB6992698a52318D",
+      "name": "Nebulas",
+      "decimals": "18",
+      "symbol": "NAS",
+      "totalSupply": "100000000",
+      "image": "https://etherscan.io/token/images/nebulas_28.png"
+    }
+  ]
+}
