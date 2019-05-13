@@ -9,11 +9,17 @@
 </head>
 <body>
     {% include 'includes/_navbar.html' %}
+    {% include 'includes/_sidenav.html' %}
     {% block body %}
     {% endblock %}
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('.sidenav').sidenav();
+        });
+    </script>
 </body>
 </html>
