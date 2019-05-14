@@ -1,6 +1,9 @@
 import os
+import secrets
 from flask import render_template, url_for, redirect, flash, request
-from app import app
+from app import app, db, argon2
+from app.forms import RegistrationForm
+from app.models import User
 
 
 # Index
@@ -12,7 +15,16 @@ def index():
 
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        password_hash = argon2.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=password_hash)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created, You can now login!')
+        return redirect(url_for('login'))
+
+    return render_template('register.html', form=form)
 
 
 @app.route('/login')
