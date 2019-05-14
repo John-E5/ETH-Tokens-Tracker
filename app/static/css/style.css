@@ -3,7 +3,30 @@ body {
     color: white;
 }
 
+.material-icons {
+    color: white;
+}
+
+
 nav {
     background-color: black;
     color: darkblue;
 }
+/*---------------------------------------------------------sidenav*/
+header, main, footer {
+    padding-left: 300px;
+}
+
+
+.sidenav {
+    color: white;
+    background-color: darkgrey;
+}
+
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
