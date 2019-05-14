@@ -1,6 +1,9 @@
 import os
+import secrets
 from flask import render_template, url_for, redirect, flash, request
-from app import app
+from app import app, db
+from app.forms import RegistrationForm
+from app.models import User
 
 
 # Index
