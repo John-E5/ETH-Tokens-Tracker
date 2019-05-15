@@ -30,3 +30,9 @@ header, main, footer {
     }
 }
 
+
+/*---------------------------------------------------------registration*/
+.card {
+    background-color: #090909;
+    border: 1px solid white;
+}
