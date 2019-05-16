@@ -1,5 +1,3 @@
-import os
-import secrets
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2
 from app.forms import RegistrationForm, LoginForm
@@ -17,7 +15,7 @@ def index():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        password_hash = argon2.generate_password_hash(form.password.data).decode('utf-8')
+        password_hash = argon2.generate_password_hash(form.password.data)
         user = User(username=form.username.data, email=form.email.data, password=password_hash)
         db.session.add(user)
         db.session.commit()
