@@ -1,10 +1,8 @@
-import os
-import secrets
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2
-from app.forms import RegistrationForm
+from app.forms import RegistrationForm, LoginForm
 from app.models import User
-
+from flask_login import login_user
 
 # Index
 @app.route('/')
@@ -13,11 +11,11 @@ def index():
     return render_template('home.html')
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        password_hash = argon2.generate_password_hash(form.password.data).decode('utf-8')
+        password_hash = argon2.generate_password_hash(form.password.data)
         user = User(username=form.username.data, email=form.email.data, password=password_hash)
         db.session.add(user)
         db.session.commit()
@@ -27,9 +25,17 @@ def register():
     return render_template('register.html', form=form)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and argon2.check_password_hash(user.password, form.password.data):
+            login_user(user)
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Login Unsuccessful, Please check email and password')
+    return render_template('login.html', form=form)
 
 
 @app.route('/logout')
