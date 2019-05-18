@@ -2,7 +2,7 @@ from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2
 from app.forms import RegistrationForm, LoginForm
 from app.models import User
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 # Index
 @app.route('/')
@@ -13,6 +13,8 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
     form = RegistrationForm()
     if form.validate_on_submit():
         password_hash = argon2.generate_password_hash(form.password.data)
@@ -27,6 +29,8 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -40,6 +44,7 @@ def login():
 
 @app.route('/logout')
 def logout():
+    logout_user()
     return render_template('home.html')
 
 
