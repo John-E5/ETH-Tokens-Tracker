@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2
-from app.forms import RegistrationForm, LoginForm
+from app.forms import RegistrationForm, LoginForm, UpdateProfileForm
 from app.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -47,10 +47,17 @@ def logout():
     return render_template('home.html')
 
 
-@app.route('/profile_page')
+@app.route('/profile_page', methods=['GET', 'POST'])
 @login_required
 def profile_page():
-    return render_template('profile_page.html')
+    form = UpdateProfileForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Profile Updated')
+        return redirect(url_for('profile_page'))
+    return render_template('profile_page.html', form=form)
 
 
 @app.route('/dashboard')
