@@ -23,7 +23,6 @@ def register():
         db.session.commit()
         flash('Your account has been created, You can now login!')
         return redirect(url_for('login'))
-
     return render_template('register.html', form=form)
 
 
@@ -49,6 +48,7 @@ def logout():
 
 
 @app.route('/profile_page')
+@login_required
 def profile_page():
     return render_template('profile_page.html')
 
