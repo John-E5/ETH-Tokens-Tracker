@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2, token_data
 from app.forms import RegistrationForm, LoginForm, UpdateProfileForm, AddTokenForm
-from app.models import User
+from app.models import User, UsersTokens
 from flask_login import login_user, current_user, logout_user, login_required
 
 # Index
@@ -14,7 +14,7 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('login'))
     form = RegistrationForm()
     if form.validate_on_submit():
         password_hash = argon2.generate_password_hash(form.password.data)
@@ -66,8 +66,18 @@ def dashboard():
 
 
 @app.route('/token/new', methods=['GET', 'POST'])
+@login_required
 def add_token():
     form = AddTokenForm()
+    if form.validate_on_submit():
+        users_tokens = UsersTokens(tokens=form.tokens.data,
+                                   token_amount=form.token_amount.data,
+                                   token_price=form.token_price.data,
+                                   buy_date=form.buy_date.data,
+                                   user=current_user)
+        db.session.add(users_tokens)
+        db.session.commit()
+        return redirect(url_for('dashboard'))
     return render_template('add_token.html', form=form, token_data=token_data)
 
 

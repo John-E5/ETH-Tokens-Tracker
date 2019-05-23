@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SelectField, DecimalField, DateField
+from wtforms import StringField, PasswordField, SelectField, DecimalField
+from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from app.models import User
 from app import token_data
@@ -50,4 +51,4 @@ class AddTokenForm(FlaskForm):
                          choices=[(token['name'], token['name']) for token in token_data['tokens']])
     token_amount = DecimalField('Amount', validators=[DataRequired()])
     token_price = DecimalField('Price', validators=[DataRequired()])
-    buy_date = DateField('Date', validators=[DataRequired()])
+    buy_date = DateField('Date', display_format='%Y-%m-%d', validators=[DataRequired()])
