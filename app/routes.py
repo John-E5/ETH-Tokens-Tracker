@@ -1,8 +1,8 @@
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2
-from app.forms import RegistrationForm, LoginForm
+from app.forms import RegistrationForm, LoginForm, UpdateProfileForm
 from app.models import User
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 # Index
 @app.route('/')
@@ -13,6 +13,8 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
     form = RegistrationForm()
     if form.validate_on_submit():
         password_hash = argon2.generate_password_hash(form.password.data)
@@ -21,12 +23,13 @@ def register():
         db.session.commit()
         flash('Your account has been created, You can now login!')
         return redirect(url_for('login'))
-
     return render_template('register.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -40,12 +43,21 @@ def login():
 
 @app.route('/logout')
 def logout():
+    logout_user()
     return render_template('home.html')
 
 
-@app.route('/profile_page')
+@app.route('/profile_page', methods=['GET', 'POST'])
+@login_required
 def profile_page():
-    return render_template('profile_page.html')
+    form = UpdateProfileForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Profile Updated')
+        return redirect(url_for('profile_page'))
+    return render_template('profile_page.html', form=form)
 
 
 @app.route('/dashboard')
