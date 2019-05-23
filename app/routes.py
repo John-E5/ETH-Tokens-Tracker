@@ -61,8 +61,10 @@ def profile_page():
 
 # Dashboard
 @app.route('/dashboard')
+@login_required
 def dashboard():
-    return render_template('dashboard.html')
+    users_tokens = UsersTokens.query.all()
+    return render_template('dashboard.html', users_tokens=users_tokens)
 
 # Add new token and commit to database
 @app.route('/token/new', methods=['GET', 'POST'])

@@ -1,1 +1,12 @@
-{% extends 'base.html' %}    {% include 'includes/_sidenav.html' %}
+{% extends 'base.html' %}
+    {% include 'includes/_sidenav.html' %}
+    {% block body %}
+        <h4 class="center">Your Token Dashboard</h4>
+        {% for token in users_tokens %}
+            <ul class="collection">
+                <li class="collection-item">
+                    <span class="title">{{ token.tokens }} | {{ token.token_amount }}</span>
+                </li>
+            </ul>
+        {% endfor %}
+    {% endblock %}
