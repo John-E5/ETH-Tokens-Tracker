@@ -10,7 +10,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 def index():
     return render_template('home.html')
 
-
+# Registration
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -25,7 +25,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
-
+# Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -40,13 +40,13 @@ def login():
             flash('Login Unsuccessful, Please check email and password')
     return render_template('login.html', form=form)
 
-
+# Logout
 @app.route('/logout')
 def logout():
     logout_user()
     return render_template('home.html')
 
-
+# Profile Page
 @app.route('/profile_page', methods=['GET', 'POST'])
 @login_required
 def profile_page():
@@ -59,12 +59,12 @@ def profile_page():
         return redirect(url_for('profile_page'))
     return render_template('profile_page.html', form=form)
 
-
+# Dashboard
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
 
-
+# Add new token and commit to database
 @app.route('/token/new', methods=['GET', 'POST'])
 @login_required
 def add_token():
@@ -77,6 +77,7 @@ def add_token():
                                    user=current_user)
         db.session.add(users_tokens)
         db.session.commit()
+        flash('Token Added')
         return redirect(url_for('dashboard'))
     return render_template('add_token.html', form=form, token_data=token_data)
 
