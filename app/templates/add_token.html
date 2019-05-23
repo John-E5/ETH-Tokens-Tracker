@@ -8,7 +8,17 @@
                     {{ form.hidden_tag() }}
                     <div class="input-field">
                         <i class="material-icons prefix">collections</i>
-                        {{ form.tokens }}
+                        {% if form.tokens.errors %}
+                            {{ form.tokens }}
+                        <div>
+                            {% for error in form.tokens.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                            {{ form.tokens }}
+                        {% endif %}
+                        <label for="tokens">Choose Token</label>
                     </div>
                 </form>
             </div>
