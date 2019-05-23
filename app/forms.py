@@ -1,8 +1,10 @@
 from flask_wtf import FlaskForm
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SelectField, DecimalField
+from wtforms.ext.dateutil.fields import DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from app.models import User
+from app import token_data
 
 
 class RegistrationForm(FlaskForm):
@@ -42,3 +44,11 @@ class UpdateProfileForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('That email is taken, Please choose another.')
+
+
+class AddTokenForm(FlaskForm):
+    tokens = SelectField('Choose Token', validators=[DataRequired()],
+                         choices=[(token['name'], token['name']) for token in token_data['tokens']])
+    token_amount = DecimalField('Amount', validators=[DataRequired()])
+    token_price = DecimalField('Price', validators=[DataRequired()])
+    buy_date = DateField('Date', display_format='%Y-%m-%d', validators=[DataRequired()])
