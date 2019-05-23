@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2
-from app.forms import RegistrationForm, LoginForm, UpdateProfileForm
+from app.forms import RegistrationForm, LoginForm, UpdateProfileForm, AddTokenForm
 from app.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -65,9 +65,10 @@ def dashboard():
     return render_template('dashboard.html')
 
 
-@app.route('/add_token')
+@app.route('/token/new', methods=['GET', 'POST'])
 def add_token():
-    return render_template('add_token.html')
+    form = AddTokenForm()
+    return render_template('add_token.html', form=form)
 
 
 @app.route('/manage_token')
