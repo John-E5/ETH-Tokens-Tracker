@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
     {% include 'includes/_sidenav.html' %}
     {% block body %}
-        <h4 class="center">Your Token Dashboard</h4>
-        {% for token in users_tokens %}
-            <ul class="collection">
-                <li class="collection-item">
-                    <span class="title">{{ token.tokens }} | {{ token.token_amount }}</span>
-                </li>
-            </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Token</th>
+                    <th>Amount</th>
+                    <th>Cost</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            {% for token in users_token %}
+            <tbody>
+                <tr>
+                    <td>{{ token.tokens }}</td>
+                    <td>{{ token.token_amount }}</td>
+                    <td>{{ token.token_price }}</td>
+                    <td>{{ token.buy_date }}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
         {% endfor %}
+        </table>
     {% endblock %}

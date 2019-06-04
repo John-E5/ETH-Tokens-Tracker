@@ -63,8 +63,8 @@ def profile_page():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    users_tokens = UsersTokens.query.all()
-    return render_template('dashboard.html', users_tokens=users_tokens)
+    users_token = UsersTokens.query.all()
+    return render_template('dashboard.html', users_token=users_token)
 
 # Add new token and commit to database
 @app.route('/token/new', methods=['GET', 'POST'])
@@ -72,23 +72,23 @@ def dashboard():
 def add_token():
     form = AddTokenForm()
     if form.validate_on_submit():
-        users_tokens = UsersTokens(tokens=form.tokens.data,
-                                   token_amount=form.token_amount.data,
-                                   token_price=form.token_price.data,
-                                   buy_date=form.buy_date.data,
-                                   user=current_user)
-        db.session.add(users_tokens)
+        token = UsersTokens(tokens=form.tokens.data,
+                            token_amount=form.token_amount.data,
+                            token_price=form.token_price.data,
+                            buy_date=form.buy_date.data,
+                            user=current_user)
+        db.session.add(token)
         db.session.commit()
         flash('Token Added')
         return redirect(url_for('dashboard'))
     return render_template('add_token.html', form=form, token_data=token_data)
 
+# Token
+@app.route('/token/<int:id>')
+def manage_token(id):
+    return render_template('token.html')
 
-@app.route('/manage_token')
-def manage_token():
-    return render_template('manage_token.html')
-
-
+# Edit Token
 @app.route('/edit_token')
 def edit_token():
     return render_template('edit_token.html')
