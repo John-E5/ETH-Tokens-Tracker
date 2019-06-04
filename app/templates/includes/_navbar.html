@@ -3,8 +3,8 @@
         <a href="/" class="brand-logo center">Token Portfolio</a>
         <ul id="nav-mobile" class="col s12 right hide-on-med-and-down">
             {% if current_user.is_authenticated %}
-                <li><a class="waves-effect waves-light btn" href="{{ url_for('profile_page') }}">Profile</a></li>
-                <li><a class="waves-effect waves-light btn" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a class="waves-effect waves-light btn" href="{{ url_for('profile_page') }}">
+                    <i class="material-icons tiny prefix">person_pin</i></a></li>
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('register') }}">Register</a></li>
