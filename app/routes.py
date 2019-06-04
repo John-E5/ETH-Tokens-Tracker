@@ -85,8 +85,9 @@ def add_token():
 
 # Token
 @app.route('/token/<int:id>')
-def manage_token(id):
-    return render_template('token.html')
+def token(id):
+    token = UsersTokens.query.get_or_404(id)
+    return render_template('token.html', token=token)
 
 # Edit Token
 @app.route('/edit_token')

@@ -1,1 +1,26 @@
 {% extends 'base.html' %}
+    {% include 'includes/_sidenav.html' %}
+    {% block body %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Token</th>
+                    <th>Amount</th>
+                    <th>Cost</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            {% for token in users_token %}
+            <tbody>
+                <tr>
+                    <td>{{ token.tokens }}</td>
+                    <td>{{ token.token_amount }}</td>
+                    <td>{{ token.token_price }}</td>
+                    <td>{{ token.buy_date }}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        {% endfor %}
+        </table>
+    {% endblock %}
