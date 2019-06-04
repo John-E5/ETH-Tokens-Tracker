@@ -111,6 +111,18 @@ def edit_token(id):
     return render_template('edit_token.html', form=form)
 
 
+# Delete Token
+@app.route('/delete_token/<int:id>')
+@login_required
+def delete_token(id):
+    token = UsersTokens.query.get(id)
+    db.session.delete(token)
+    db.session.commit()
+    flash('Token Deleted')
+    return redirect(url_for('dashboard'))
+
+
+
 @app.route('/portfolio_stats')
 def portfolio_stats():
     return render_template('portfolio_stats.html')
