@@ -1,1 +1,38 @@
-{% extends 'base.html' %}    {% include 'includes/_sidenav.html' %}
+{% extends 'base.html' %}
+    {% include 'includes/_sidenav.html' %}
+    {% block body %}
+        <table class="highlight centered">
+            <thead>
+                <tr>
+                    <th>Token</th>
+                    <th>Amount</th>
+                    <th>Cost</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            {% for token in users_token %}
+            <tbody>
+                <tr>
+                    <td>{{ token.tokens }}</td>
+                    <td>{{ token.token_amount }}</td>
+                    <td>{{ token.token_price }}</td>
+                    <td>{{ token.buy_date }}</td>
+                    <td><a href="{{ url_for('edit_token', id=token.id) }}" class="btn-tiny waves-effect
+                    waves-light green badge"><i class="material-icons">add_circle</i></a></td>
+                    <td><a href="#!" class="btn-tiny waves-effect waves-light
+                    red badge modal-trigger" data-target="modal1"><i class="material-icons">remove_circle</i></a></td>
+                </tr>
+            </tbody>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h5>Are you sure you want to remove token?</h5>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    <a href="{{ url_for('delete_token', id=token.id) }}" class="waves-effect waves-red btn-flat">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+        </table>
+    {% endblock %}

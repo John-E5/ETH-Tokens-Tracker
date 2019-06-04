@@ -36,3 +36,8 @@ header, main, footer {
     background-color: #090909;
     border: 1px solid white;
 }
+
+/*---------------------------------------------------------Dashboard*/
+.collection .collection-item {
+    background-color: #090808;
+}

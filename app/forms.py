@@ -39,8 +39,8 @@ class UpdateProfileForm(FlaskForm):
             if user:
                 raise ValidationError('That username is taken, Please choose another.')
 
-    def validate_username(self, email):
-        if email.data != current_user.username:
+    def validate_email(self, email):
+        if email.data != current_user.email:
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('That email is taken, Please choose another.')
@@ -48,7 +48,14 @@ class UpdateProfileForm(FlaskForm):
 
 class AddTokenForm(FlaskForm):
     tokens = SelectField('Choose Token', validators=[DataRequired()],
-                         choices=[(token['name'], token['name']) for token in token_data['tokens']])
+                         choices=[(token['symbol'], token['name']) for token in token_data['tokens']])
+    token_amount = DecimalField('Amount', validators=[DataRequired()])
+    token_price = DecimalField('Price', validators=[DataRequired()])
+    buy_date = DateField('Date', display_format='%Y-%m-%d', validators=[DataRequired()])
+
+
+class UpdateTokenForm(FlaskForm):
+    tokens = StringField('Token')
     token_amount = DecimalField('Amount', validators=[DataRequired()])
     token_price = DecimalField('Price', validators=[DataRequired()])
     buy_date = DateField('Date', display_format='%Y-%m-%d', validators=[DataRequired()])
