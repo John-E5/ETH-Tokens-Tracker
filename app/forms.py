@@ -52,3 +52,10 @@ class AddTokenForm(FlaskForm):
     token_amount = DecimalField('Amount', validators=[DataRequired()])
     token_price = DecimalField('Price', validators=[DataRequired()])
     buy_date = DateField('Date', display_format='%Y-%m-%d', validators=[DataRequired()])
+
+
+class UpdateTokenForm(FlaskForm):
+    tokens = StringField('Token')
+    token_amount = DecimalField('Amount', validators=[DataRequired()])
+    token_price = DecimalField('Price', validators=[DataRequired()])
+    buy_date = DateField('Date', display_format='%Y-%m-%d', validators=[DataRequired()])

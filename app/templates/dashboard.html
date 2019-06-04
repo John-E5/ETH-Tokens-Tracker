@@ -17,7 +17,8 @@
                     <td>{{ token.token_amount }}</td>
                     <td>{{ token.token_price }}</td>
                     <td>{{ token.buy_date }}</td>
-                    <td></td>
+                    <td><a href="{{ url_for('edit_token', id=token.id) }}" class="btn-tiny waves-effect
+                    waves-light green badge"><i class="material-icons">add_circle</i></a></td>
                     <td></td>
                 </tr>
             </tbody>

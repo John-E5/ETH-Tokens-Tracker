@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, argon2, token_data
-from app.forms import RegistrationForm, LoginForm, UpdateProfileForm, AddTokenForm
+from app.forms import RegistrationForm, LoginForm, UpdateProfileForm, AddTokenForm, UpdateTokenForm
 from app.models import User, UsersTokens
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -85,14 +85,30 @@ def add_token():
 
 # Token
 @app.route('/token/<int:id>')
+@login_required
 def token(id):
     token = UsersTokens.query.get_or_404(id)
     return render_template('token.html', token=token)
 
 # Edit Token
-@app.route('/edit_token')
-def edit_token():
-    return render_template('edit_token.html')
+@app.route('/edit_token/<int:id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_token(id):
+    token = UsersTokens.query.get_or_404(id)
+    form = UpdateTokenForm()
+    if form.validate_on_submit():
+        token.token_amount = form.token_amount.data
+        token.token_price = form.token_price.data
+        token.buy_date = form.buy_date.data
+        db.session.commit()
+        flash('Token Updated')
+        return redirect(url_for('dashboard', id=token.id))
+    elif request.method == 'GET':
+        form.tokens.data = token.tokens
+        form.token_amount.data = token.token_amount
+        form.token_price.data = token.token_price
+        form.buy_date.data = token.buy_date
+    return render_template('edit_token.html', form=form)
 
 
 @app.route('/portfolio_stats')
