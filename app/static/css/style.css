@@ -10,7 +10,6 @@ body {
 
 nav {
     background-color: black;
-    color: darkblue;
 }
 /*---------------------------------------------------------sidenav*/
 nav, header, main, footer {
@@ -20,9 +19,17 @@ nav, header, main, footer {
 
 .sidenav {
     color: white;
-    background-color: darkgrey;
+    background-color: #090909;
 }
 
+.sidenav-title, .balance {
+    padding-bottom: 30px;
+}
+
+.sidenav li > a {
+    color: white;
+    background-color: dimgrey;
+}
 
 @media only screen and (max-width : 992px) {
     nav, header, main, footer {
@@ -38,6 +45,3 @@ nav, header, main, footer {
 }
 
 /*---------------------------------------------------------Dashboard*/
-.collection .collection-item {
-    background-color: #090808;
-}
