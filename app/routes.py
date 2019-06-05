@@ -63,7 +63,8 @@ def profile_page():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    users_token = UsersTokens.query.all()
+    page = request.args.get('page', 1, type=int)
+    users_token = UsersTokens.query.order_by(UsersTokens.buy_date).paginate(page=page, per_page=6)
     return render_template('dashboard.html', users_token=users_token)
 
 # Add new token and commit to database
@@ -112,10 +113,10 @@ def edit_token(id):
 
 
 # Delete Token
-@app.route('/delete_token/<int:id>')
+@app.route('/dashboard/<int:id>/delete_token')
 @login_required
 def delete_token(id):
-    token = UsersTokens.query.get(id)
+    token = UsersTokens.query.get_or_404(id)
     db.session.delete(token)
     db.session.commit()
     flash('Token Deleted')

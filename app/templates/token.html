@@ -1,26 +1,37 @@
 {% extends 'base.html' %}
     {% include 'includes/_sidenav.html' %}
+
     {% block body %}
-        <table>
+        <table class="highlight centered col s12">
             <thead>
                 <tr>
                     <th>Token</th>
                     <th>Amount</th>
-                    <th>Cost</th>
+                    <th>Price(BTC)</th>
                     <th>Date</th>
+                    <th>Value(BTC)</th>
                 </tr>
             </thead>
-            {% for token in users_token %}
             <tbody>
                 <tr>
                     <td>{{ token.tokens }}</td>
                     <td>{{ token.token_amount }}</td>
                     <td>{{ token.token_price }}</td>
-                    <td>{{ token.buy_date }}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ token.token_price * token.token_amount }}</td>
+                    <td><a href="{{ url_for('edit_token', id=token.id) }}" class="btn-tiny waves-effect waves-light green badge"><i class="material-icons">add_circle</i></a></td>
+                    <td><a href="" class="btn-tiny waves-effect waves-light red badge modal-trigger" data-target="modal1"><i class="material-icons">remove_circle</i></a></td>
                 </tr>
             </tbody>
-        {% endfor %}
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal col s12">
+                <div class="modal-content">
+                    <h4>Delete Token?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    <a href="{{ url_for('delete_token', id=token.id) }}" class="waves-effect waves-red btn-flat">Delete</a>
+                </div>
+            </div>
         </table>
     {% endblock %}
