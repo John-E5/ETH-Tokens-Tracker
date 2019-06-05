@@ -22,8 +22,8 @@ class User(db.Model, UserMixin):
 class UsersTokens(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tokens = db.Column(db.String(100))
-    token_amount = db.Column(db.DECIMAL(8, 8))
-    token_price = db.Column(db.DECIMAL(8, 8))
+    token_amount = db.Column(db.Float())
+    token_price = db.Column(db.Float())
     buy_date = db.Column(db.DateTime, nullable=False, default=date)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
