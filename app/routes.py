@@ -8,7 +8,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template('home.html')
+    token_image = [(token['image']) for token in token_data['tokens']]
+    return render_template('home.html', token_image=token_image)
 
 # Registration
 @app.route('/register', methods=['GET', 'POST'])
