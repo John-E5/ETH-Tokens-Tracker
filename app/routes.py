@@ -14,7 +14,7 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('login'))
+        return redirect(url_for('dashboard'))
     form = RegistrationForm()
     if form.validate_on_submit():
         password_hash = argon2.generate_password_hash(form.password.data)
@@ -34,7 +34,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and argon2.check_password_hash(user.password, form.password.data):
-            login_user(user)
+            login_user(user, remember=True)
             return redirect(url_for('dashboard'))
         else:
             flash('Login Unsuccessful, Please check email and password')
