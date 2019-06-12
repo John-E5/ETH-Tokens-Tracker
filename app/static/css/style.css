@@ -10,6 +10,7 @@ body {
 
 nav {
     background-color: black;
+    color: white;
 }
 /*---------------------------------------------------------sidenav*/
 nav, header, main, footer {
@@ -45,3 +46,11 @@ nav, header, main, footer {
 }
 
 /*---------------------------------------------------------Dashboard*/
+
+
+/*---------------------------------------------------------Landing Page*/
+
+.text-content {
+    padding-top: 50px;
+    font-size: 2em;
+}
