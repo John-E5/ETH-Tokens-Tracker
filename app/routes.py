@@ -8,13 +8,14 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template('home.html')
+    token_image = [(token['image']) for token in token_data['tokens']]
+    return render_template('home.html', token_image=token_image)
 
 # Registration
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('login'))
+        return redirect(url_for('dashboard'))
     form = RegistrationForm()
     if form.validate_on_submit():
         password_hash = argon2.generate_password_hash(form.password.data)
@@ -34,7 +35,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and argon2.check_password_hash(user.password, form.password.data):
-            login_user(user)
+            login_user(user, remember=True)
             return redirect(url_for('dashboard'))
         else:
             flash('Login Unsuccessful, Please check email and password')
@@ -63,7 +64,8 @@ def profile_page():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    users_token = UsersTokens.query.all()
+    page = request.args.get('page', 1, type=int)
+    users_token = UsersTokens.query.order_by(UsersTokens.buy_date).paginate(page=page, per_page=6)
     return render_template('dashboard.html', users_token=users_token)
 
 # Add new token and commit to database
@@ -112,10 +114,10 @@ def edit_token(id):
 
 
 # Delete Token
-@app.route('/delete_token/<int:id>')
+@app.route('/dashboard/<int:id>/delete_token')
 @login_required
 def delete_token(id):
-    token = UsersTokens.query.get(id)
+    token = UsersTokens.query.get_or_404(id)
     db.session.delete(token)
     db.session.commit()
     flash('Token Deleted')

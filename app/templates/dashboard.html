@@ -1,38 +1,41 @@
 {% extends 'base.html' %}
+    {% include 'includes/_navbar.html' %}
     {% include 'includes/_sidenav.html' %}
+
     {% block body %}
-        <table class="highlight centered">
+        <table class="highlight centered col s12">
             <thead>
                 <tr>
                     <th>Token</th>
                     <th>Amount</th>
-                    <th>Cost</th>
+                    <th>Price(BTC)</th>
                     <th>Date</th>
+                    <th>Value(BTC)</th>
                 </tr>
             </thead>
-            {% for token in users_token %}
+            {% for token in users_token.items %}
             <tbody>
                 <tr>
                     <td>{{ token.tokens }}</td>
                     <td>{{ token.token_amount }}</td>
                     <td>{{ token.token_price }}</td>
-                    <td>{{ token.buy_date }}</td>
-                    <td><a href="{{ url_for('edit_token', id=token.id) }}" class="btn-tiny waves-effect
-                    waves-light green badge"><i class="material-icons">add_circle</i></a></td>
-                    <td><a href="#!" class="btn-tiny waves-effect waves-light
-                    red badge modal-trigger" data-target="modal1"><i class="material-icons">remove_circle</i></a></td>
+                    <td>{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ token.token_price * token.token_amount }}</td>
+                    <td><a href="{{ url_for('token', id=token.id) }}" class="btn waves-effect waves-light teal badge"><i class="material-icons">add_circle</i>Edit</a></td>
                 </tr>
             </tbody>
-            <!-- Modal Structure -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <h5>Are you sure you want to remove token?</h5>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                    <a href="{{ url_for('delete_token', id=token.id) }}" class="waves-effect waves-red btn-flat">Delete</a>
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
         </table>
+        {% for page_num in users_token.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if users_token.page == page_num %}
+                    <a class="waves-effect waves-light btn" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                    <a class="waves-effect waves-teal btn-flat" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
+
     {% endblock %}

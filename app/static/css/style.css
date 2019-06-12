@@ -10,22 +10,30 @@ body {
 
 nav {
     background-color: black;
-    color: darkblue;
+    color: white;
 }
 /*---------------------------------------------------------sidenav*/
-header, main, footer {
+nav, header, main, footer {
     padding-left: 300px;
 }
 
 
 .sidenav {
     color: white;
-    background-color: darkgrey;
+    background-color: #090909;
 }
 
+.sidenav-title, .balance {
+    padding-bottom: 30px;
+}
+
+.sidenav li > a {
+    color: white;
+    background-color: dimgrey;
+}
 
 @media only screen and (max-width : 992px) {
-    header, main, footer {
+    nav, header, main, footer {
         padding-left: 0;
     }
 }
@@ -38,6 +46,11 @@ header, main, footer {
 }
 
 /*---------------------------------------------------------Dashboard*/
-.collection .collection-item {
-    background-color: #090808;
+
+
+/*---------------------------------------------------------Landing Page*/
+
+.text-content {
+    padding-top: 50px;
+    font-size: 2em;
 }

@@ -8,19 +8,118 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-    {% include 'includes/_navbar.html' %}
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Token Portfolio</a>
+        </div>
+  </nav>
+    <!-- Main image -->
     <header>
         <div class="container">
             <div class="row">
                 <div class="center">
                     <img src="../static/images/screenshot_1.png" alt="" class="responsive-img">
+                    <a class="waves-effect waves-light btn" href="{{ url_for('register') }}">Register</a>
+                    <a class="waves-effect waves-light btn" href="{{ url_for('login') }}">Login</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Image Carousel -->
+    <section id="token-images">
+        <div class="row">
+            <div class="carousel">
+                {% for image in token_image %}
+                    <img src="{{ image }}" class="carousel-item responsive-img" alt="token image">
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- ./Image Carousel -->
 
+    <!-- Create token -->
+    <section id="create-token">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container col s12 m6 l6">
+                    <p class="text-content center ">Create a portfolio for tracking Ethereum tokens, Add your token and holdings</p>
+                </div>
+                <div class="container col s12 m6 l6">
+                    <img class="responsive-img" src="../static/images/screenshot_1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ./Create token -->
+
+    <!-- Read token -->
+    <section id="read-token">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container col s12 m6 l6">
+                    <img class="responsive-img" src="../static/images/screenshot_1.png" alt="">
+                </div>
+                <div class="container col s12 m6 l6">
+                    <p class="text-content center">Read info about your token balance and history, View charts and stats for your portfolio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ./Read token -->
+
+    <!-- Update-delete -->
+    <section id="update-delete">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container col s12 m6 l6">
+                    <p class="text-content center">Update and delete your holdings and prices.</p>
+                </div>
+                <div class="container col s12 m6 l6">
+                    <img class="responsive-img" src="../static/images/screenshot_1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ./Update-delete -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container col s12 m6 l6">
+                    <p>footer text</p>
+                </div>
+                <div class="container col s12 m6 l6">
+                    <p>More footer text
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ./Footer -->
+
+    <!-- materialize script tags -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Carousel Jquery -->
+    <script>
+        $(document).ready(function(){
+            $('.carousel').carousel(
+              {
+                dist: 0,
+                padding: 300,
+                numVisible: 5,
+                duration: 100,
+                next: 2,
+              }
+              );
+
+            setInterval(function () {
+                $('.carousel').carousel('next');
+
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
