@@ -47,8 +47,15 @@ nav, header, main, footer {
 
 /*---------------------------------------------------------Dashboard*/
 
-
+.modal {
+    background-color: #311616;
+}
 /*---------------------------------------------------------Landing Page*/
+
+.container-fluid {
+    height: 100vh;
+}
+
 
 .text-content {
     padding-top: 50px;

@@ -56,7 +56,8 @@
                                 {{ form.confirm_password }}
                             {% endif %}
                         </div>
-                         <button class="btn waves-effect waves-light" type="submit" name="action">Register</button>
+                         <button class="btn waves-effect waves-light" onclick="M.toast({html: 'Account created you can now log in!'})"
+                                 type="submit" name="action">Register</button>
                     </form>
                     <small>
                         Already Have An Account? <a class="" href="{{ url_for('login') }}">Sign In</a>
