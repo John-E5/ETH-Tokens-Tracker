@@ -3,6 +3,7 @@ from flask import Flask, json
 from flask_sqlalchemy import SQLAlchemy
 from flask_argon2 import Argon2
 from flask_login import LoginManager
+from flask_toastr import Toastr
 
 # App config and database init
 app = Flask(__name__, template_folder='templates')
@@ -24,6 +25,9 @@ login_manager.login_message_category = 'info'
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 json_data = os.path.join(SITE_ROOT, "static/data", "tokensData.json")
 token_data = json.load(open(json_data))
+
+
+toastr = Toastr(app)
 
 # Import routes after app has been init
 from app import routes
