@@ -29,6 +29,7 @@ def register():
         user = User(username=form.username.data, email=form.email.data, password=password_hash)
         db.session.add(user)
         db.session.commit()
+        flash('Your account has been created, You can now login!')
         return redirect(url_for('login'))
 
     return render_template('register.html', form=form)
@@ -45,6 +46,7 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and argon2.check_password_hash(user.password, form.password.data):
             login_user(user, remember=True)
+            flash('You are now logged in!')
             return redirect(url_for('dashboard'))
         else:
             flash('Login Unsuccessful, Please check email and password')
@@ -70,6 +72,7 @@ def profile_page():
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
+        flash('Profile Updated')
         return redirect(url_for('profile_page'))
 
     return render_template('profile_page.html', form=form)
@@ -99,6 +102,7 @@ def add_token():
                             user=current_user)
         db.session.add(token)
         db.session.commit()
+        flash('Token Added')
         return redirect(url_for('dashboard'))
 
     return render_template('add_token.html', form=form, token_data=token_data)
@@ -125,6 +129,7 @@ def edit_token(id):
         token.token_price = form.token_price.data
         token.buy_date = form.buy_date.data
         db.session.commit()
+        flash('Token Updated')
         return redirect(url_for('dashboard', id=token.id))
 
     elif request.method == 'GET':

@@ -17,7 +17,9 @@ nav, header, main, footer {
     padding-left: 300px;
 }
 
-
+main {
+    padding-top: 100px;
+}
 .sidenav {
     color: white;
     background-color: #090909;
