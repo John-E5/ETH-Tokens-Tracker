@@ -21,7 +21,7 @@
                     <td>{{ token.token_price }}</td>
                     <td>{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
                     <td>{{ token.token_price * token.token_amount }}</td>
-                    <td><a href="{{ url_for('token', id=token.id) }}" class="btn waves-effect waves-light teal badge"><i class="material-icons">add_circle</i>Edit</a></td>
+                    <td><a href="{{ url_for('token', id=token.id) }}" class="btn waves-effect waves-light teal badge">View<i class="material-icons">keyboard_arrow_right</i></a></td>
                 </tr>
             </tbody>
             {% endfor %}
