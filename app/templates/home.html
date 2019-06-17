@@ -8,21 +8,23 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-    <nav>
+    <nav class="home-nav">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo center">Token Portfolio</a>
         </div>
   </nav>
     <!-- Main image -->
-    <header>
+    <header class="home-header">
         <div class="container">
             <div class="row">
                 <div class="center">
-                    <img src="../static/images/screenshot_1.png" alt="" class="responsive-img">
+                    <img src="https://support.anycoindirect.eu/hc/article_attachments/115003020811/ETH_logo.png" alt="" class="responsive-img">
+                </div>
+            </div>
+                <div class="center">
                     <a class="waves-effect waves-light btn" href="{{ url_for('register') }}">Register</a>
                     <a class="waves-effect waves-light btn" href="{{ url_for('login') }}">Login</a>
                 </div>
-            </div>
         </div>
     </header>
 

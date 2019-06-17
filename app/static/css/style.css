@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono|Source+Code+Pro&display=swap');
+
 body {
     background-color: #0e0e37;
     color: white;
+    font-family: 'Share Tech Mono', monospace;
 }
 
-
+.material-icons {
+    color: #ff3c3f;
+}
 nav {
     background-color: black;
     color: white;
@@ -22,8 +27,8 @@ main {
 }
 
 .sidenav-title {
-    padding-top: 50px;
-    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .sidenav li > a {
@@ -31,6 +36,12 @@ main {
     background-color: dimgrey;
 }
 
+
+.logo {
+    height: 150px;
+    width: 130px;
+    padding-bottom: 30px;
+}
 @media only screen and (max-width : 992px) {
     nav, header, main, footer {
         padding-left: 0;
@@ -38,7 +49,7 @@ main {
 }
 
 .sidenav li > a > i.material-icons {
-    color: #0e0e37;
+    color: #ff3c3f;
 }
 
 
@@ -54,14 +65,22 @@ main {
     background-color: #311616;
 }
 
+.modal-footer {
+    color: #000;
+}
+
 .btn-flat {
-    color: white;
+    color: #ff3c3f;
 }
 
 .btn, .btn-large, .btn-small {
     background-color: dimgrey;
 }
-/*---------------------------------------------------------Landing Page*/
+
+tr {
+    border-bottom: 2px solid #ff3c3f;
+}
+/*---------------------------------------------------------home Page*/
 
 .container-fluid {
     height: 100vh;
@@ -71,4 +90,8 @@ main {
 .text-content {
     padding-top: 50px;
     font-size: 2em;
+}
+
+.home-nav, .home-header {
+    padding: 0;
 }
