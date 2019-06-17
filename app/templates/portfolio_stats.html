@@ -4,9 +4,17 @@
     {% block body %}
         <div class="container-fluid">
             <div class="row">
-                <div class="container">
-                    <embed type="image/svg+xml" src={{pie_graph|safe}} style='max-width:400px'/>
+                <div class="container pie col s12 m6">
+                    <embed type="image/svg+xml" src={{pie_graph|safe}} style='max-width:500px'/>
+                </div>
+                <div class="container bar col s12 m6">
+                    <embed type="image/svg+xml" src={{bar_graph|safe}} style='max-width:600px'/>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="container tree col s12">
+                    <embed type="image/svg+xml" src={{Tree_map|safe}} style='max-width:1000px'/>
+                </div>
+            </div>
+	    </div>
     {% endblock %}

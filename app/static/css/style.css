@@ -1,9 +1,5 @@
 body {
-    background-color: black;
-    color: white;
-}
-
-.material-icons {
+    background-color: #0e0e37;
     color: white;
 }
 
@@ -13,7 +9,7 @@ nav {
     color: white;
 }
 /*---------------------------------------------------------sidenav*/
-nav, header, main, footer {
+nav, header, main {
     padding-left: 300px;
 }
 
@@ -25,7 +21,8 @@ main {
     background-color: #090909;
 }
 
-.sidenav-title, .balance {
+.sidenav-title {
+    padding-top: 50px;
     padding-bottom: 30px;
 }
 
@@ -40,6 +37,10 @@ main {
     }
 }
 
+.sidenav li > a > i.material-icons {
+    color: #0e0e37;
+}
+
 
 /*---------------------------------------------------------registration*/
 .card {
@@ -51,6 +52,14 @@ main {
 
 .modal {
     background-color: #311616;
+}
+
+.btn-flat {
+    color: white;
+}
+
+.btn, .btn-large, .btn-small {
+    background-color: dimgrey;
 }
 /*---------------------------------------------------------Landing Page*/
 
