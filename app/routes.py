@@ -9,6 +9,10 @@ from app.forms import RegistrationForm, LoginForm, UpdateProfileForm, AddTokenFo
 from app.models import User, UsersTokens
 
 
+# Pygal
+import pygal
+
+
 # Index
 @app.route('/')
 @app.route('/home')
@@ -155,5 +159,12 @@ def delete_token(id):
 
 @app.route('/portfolio_stats')
 def portfolio_stats():
-    return render_template('portfolio_stats.html')
+    # Piechart
+    user_token = dict(db.session.query(UsersTokens.tokens, UsersTokens.token_amount).filter_by(user=current_user).all())
+    pie_graph = pygal.Pie()
+    for name, amount in user_token.items():
+        pie_graph.add(name, amount)
+    pie_graph = pie_graph.render_data_uri()
+
+    return render_template('portfolio_stats.html', pie_graph=pie_graph)
 
