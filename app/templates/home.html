@@ -5,20 +5,18 @@
     <title>Token Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+
 </head>
-<body>
-    <nav class="home-nav">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Token Portfolio</a>
-        </div>
-  </nav>
-    <!-- Main image -->
+<body class="landing">
+     <!-- Main image -->
     <header class="home-header">
         <div class="container">
             <div class="row">
                 <div class="center">
-                    <img src="https://support.anycoindirect.eu/hc/article_attachments/115003020811/ETH_logo.png" alt="" class="responsive-img">
+                    <h1>Ethereum Token Portfolio</h1>
                 </div>
             </div>
                 <div class="center">
@@ -33,7 +31,7 @@
         <div class="row">
             <div class="carousel">
                 {% for image in token_image %}
-                    <img src="{{ image }}" class="carousel-item responsive-img" alt="token image">
+                    <img src="{{ image }}" class="carousel-item responsive-img hoverable" alt="token image">
                 {% endfor %}
             </div>
         </div>
@@ -42,13 +40,16 @@
 
     <!-- Create token -->
     <section id="create-token">
-        <div class="container-fluid">
+        <div class="container-fluid reveal">
             <div class="row">
-                <div class="container col s12 m6 l6">
-                    <p class="text-content center ">Create a portfolio for tracking Ethereum tokens, Add your token and holdings</p>
+                <div class="container text center-align col s12 m4 l4">
+                    <p class="text-content centered valign-wrapper rotate-left">Create a portfolio for tracking
+                        Ethereum tokens, Add
+                        your
+                        token and holdings</p>
                 </div>
-                <div class="container col s12 m6 l6">
-                    <img class="responsive-img" src="../static/images/screenshot_1.png" alt="">
+                <div class="container shot col s12 m6 l6">
+                    <img class="responsive-img hoverable" src="https://drive.google.com/uc?id=1zJsOGX5xPMIu_VEnb4p3vpSSXpvCXufl" alt="">
                 </div>
             </div>
         </div>
@@ -57,13 +58,15 @@
 
     <!-- Read token -->
     <section id="read-token">
-        <div class="container-fluid">
+        <div class="container-fluid reveal">
             <div class="row">
-                <div class="container col s12 m6 l6">
-                    <img class="responsive-img" src="../static/images/screenshot_1.png" alt="">
+                <div class="container shot col s12 m6 l6">
+                    <img class="responsive-img hoverable" src="https://drive.google.com/uc?id=11FPzaXhxl_dz3PhaLrq852ITe812rwy7" alt="">
                 </div>
-                <div class="container col s12 m6 l6">
-                    <p class="text-content center">Read info about your token balance and history, View charts and stats for your portfolio</p>
+                <div class="container text center-align col s12 m4 l4">
+                    <p class="text-content centered valign-wrapper rotate-right">Read info about your token balance and history,
+                        View charts and
+                        stats for your portfolio</p>
                 </div>
             </div>
         </div>
@@ -72,13 +75,14 @@
 
     <!-- Update-delete -->
     <section id="update-delete">
-        <div class="container-fluid">
+        <div class="container-fluid reveal">
             <div class="row">
-                <div class="container col s12 m6 l6">
-                    <p class="text-content center">Update and delete your holdings and prices.</p>
+                <div class="container text valign-wrapper col s12 m4 l4">
+                    <p class="text-content centered rotate-left">Update and delete your holdings and prices.</p>
                 </div>
-                <div class="container col s12 m6 l6">
-                    <img class="responsive-img" src="../static/images/screenshot_1.png" alt="">
+                <div class="container shot col s12 m6 l6">
+                    <img class="responsive-img hoverable z-depth-2" src="https://drive.google.com/uc?id=16p-R37WeOb_p9Kisi5HRsUNmXEiwjFgr"
+                         alt="">
                 </div>
             </div>
         </div>
@@ -86,14 +90,20 @@
     <!-- ./Update-delete -->
 
     <!-- Footer -->
-    <footer>
-        <div class="container-fluid">
+    <footer class="home-footer">
+        <div class="container reveal">
             <div class="row">
-                <div class="container col s12 m6 l6">
-                    <p>footer text</p>
-                </div>
-                <div class="container col s12 m6 l6">
-                    <p>More footer text
+                <div class="container col s12">
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                    <h6 class="center"><a href="https://github.com/John-E5" target="_blank">Design by John
+            Ennis</a></h6>
                 </div>
             </div>
         </div>
@@ -103,6 +113,17 @@
     <!-- materialize script tags -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal({ reset: true });
+    </script>
+
+    <script>
+        ScrollReveal().reveal('.reveal', { delay: 500 });
+        ScrollReveal().reveal('.text', { delay: 800 });
+        ScrollReveal().reveal('.shot', { delay: 1600 });
+    </script>
+
 
     <!-- Carousel Jquery -->
     <script>
@@ -123,5 +144,6 @@
             }, 1500);
         });
     </script>
+
 </body>
 </html>

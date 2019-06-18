@@ -7,13 +7,26 @@ body {
 }
 
 .material-icons {
-    color: #ff3c3f;
+    color: #d60a00;
 }
+
 nav {
-    background-color: black;
+    background-color: #090909;
     color: white;
 }
+
+@media only screen and (max-width : 510px) {
+    nav {
+        height: 100px;
+    }
+}
+
+form {
+    height: 70vh;
+}
+
 /*---------------------------------------------------------sidenav*/
+
 nav, header, main {
     padding-left: 300px;
 }
@@ -21,6 +34,7 @@ nav, header, main {
 main {
     padding-top: 100px;
 }
+
 .sidenav {
     color: white;
     background-color: #090909;
@@ -42,6 +56,7 @@ main {
     width: 130px;
     padding-bottom: 30px;
 }
+
 @media only screen and (max-width : 992px) {
     nav, header, main, footer {
         padding-left: 0;
@@ -49,7 +64,7 @@ main {
 }
 
 .sidenav li > a > i.material-icons {
-    color: #ff3c3f;
+    color: #d60a00;
 }
 
 
@@ -70,7 +85,7 @@ main {
 }
 
 .btn-flat {
-    color: #ff3c3f;
+    color: #d60a00;
 }
 
 .btn, .btn-large, .btn-small {
@@ -78,20 +93,86 @@ main {
 }
 
 tr {
-    border-bottom: 2px solid #ff3c3f;
+    border-bottom: 2px solid #d60a00;
 }
+
+.dashboard-footer {
+    height: 50px;
+    background-color: #090909;
+    padding: 0;
+    margin: 0;
+}
+
+h5 {
+    margin: 0;
+    padding-top: 10px;
+}
+
 /*---------------------------------------------------------home Page*/
 
-.container-fluid {
-    height: 100vh;
+.landing {
+    background: linear-gradient(180deg, #3138cb, #0e0e10);
+    background-size: 400% 400%;
+
+    -webkit-animation: bg-color-change 18s ease infinite;
+    -moz-animation: bg-color-change 18s ease infinite;
+    animation: bg-color-change 18s ease infinite;
 }
 
+@-webkit-keyframes bg-color-change {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@-moz-keyframes bg-color-change {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@keyframes bg-color-change {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+
+
+.container-fluid {
+    height: 80vh;
+}
 
 .text-content {
     padding-top: 50px;
     font-size: 2em;
 }
 
-.home-nav, .home-header {
-    padding: 0;
+.home-header {
+    padding: 100px 0px 0px 0px;
+}
+
+.home-footer {
+    height: 300px;
+    background-color: #090909;
+}
+
+.rotate-left {
+    padding-bottom: 50px;
+    transform: rotate(-15deg);
+}
+
+.rotate-right {
+    transform: rotate(15deg);
+}
+
+.social-links {
+    text-align: center;
+}
+
+.social-links li {
+    display: inline-block;
+    padding: 50px;
+}
+/*---------------------------------------------------------token Page*/
+
+.token-table {
+    margin-bottom: 400px;
 }

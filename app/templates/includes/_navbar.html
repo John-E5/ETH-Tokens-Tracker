@@ -6,7 +6,8 @@
             {% if current_user.is_authenticated %}
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('profile_page') }}">
                     <i class="material-icons tiny prefix">person_pin</i></a></li>
-                <li><a class="waves-effect waves-light btn" href="{{ url_for('logout') }}">Logout</a></li>
+                <li><a class="waves-effect waves-light btn" href="{{ url_for('logout') }}">
+                    <i class="material-icons tiny prefix">exit_to_app</i></a></li>
             {% else %}
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('register') }}">Register</a></li>
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('login') }}">Login</a></li>
