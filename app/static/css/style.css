@@ -71,6 +71,9 @@ main {
     border: 1px solid white;
 }
 
+.login {
+    margin-right: 500px;
+}
 /*---------------------------------------------------------Dashboard*/
 
 .modal {

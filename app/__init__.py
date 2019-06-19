@@ -18,8 +18,7 @@ login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 
 # Json data loading and config
-SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-json_data = os.path.join(SITE_ROOT, "static/data", "tokensData.json")
+json_data = os.path.join(Config.SITE_ROOT, "static/data", "tokensData.json")
 token_data = json.load(open(json_data))
 
 
