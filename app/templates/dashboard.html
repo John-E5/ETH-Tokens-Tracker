@@ -21,7 +21,7 @@
                     <td>{{ token.token_price }}</td>
                     <td>{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
                     <td>{{ token.token_price * token.token_amount }}</td>
-                    <td><a href="{{ url_for('token', id=token.id) }}" class="btn waves-effect waves-light badge">View<i class="material-icons">keyboard_arrow_right</i></a></td>
+                    <td><a href="{{ url_for('tokens.token', id=token.id) }}" class="btn waves-effect waves-light badge">View<i class="material-icons">keyboard_arrow_right</i></a></td>
                 </tr>
             </tbody>
             {% endfor %}
@@ -29,9 +29,9 @@
         {% for page_num in users_token.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if page_num %}
                 {% if users_token.page == page_num %}
-                    <a class="waves-effect waves-light btn" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
+                    <a class="waves-effect waves-light btn" href="{{ url_for('tokens.dashboard', page=page_num) }}">{{ page_num }}</a>
                 {% else %}
-                    <a class="waves-effect waves-teal btn-flat" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
+                    <a class="waves-effect waves-teal btn-flat" href="{{ url_for('tokens.dashboard', page=page_num) }}">{{ page_num }}</a>
                 {% endif %}
             {% else %}
                 ...

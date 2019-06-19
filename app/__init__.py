@@ -1,24 +1,20 @@
 import os
 from flask import Flask, json
 from flask_sqlalchemy import SQLAlchemy
-from flask_argon2 import Argon2
+from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_toastr import Toastr
+from app.config import Config
 
 # App config and database init
-app = Flask(__name__, template_folder='templates')
-app.config['SECRET_KEY'] = 'f5e7522cec73e9e33b8c496a7e073f0d'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-
-
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 # Password hashing
-argon2 = Argon2(app)
+bcrypt = Bcrypt()
 
 # Login config
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
+login_manager = LoginManager()
+login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 
 # Json data loading and config
@@ -27,7 +23,26 @@ json_data = os.path.join(SITE_ROOT, "static/data", "tokensData.json")
 token_data = json.load(open(json_data))
 
 
-toastr = Toastr(app)
+toastr = Toastr()
 
 # Import routes after app has been init
-from app import routes
+
+
+def create_app(config_class=Config):
+    app = Flask(__name__, template_folder='templates')
+    app.config.from_object(Config)
+
+    db.init_app(app)
+    bcrypt.init_app(app)
+    login_manager.init_app(app)
+    toastr.init_app(app)
+
+    from app.users.routes import users
+    from app.tokens.routes import tokens
+    from app.main.routes import main
+
+    app.register_blueprint(users)
+    app.register_blueprint(tokens)
+    app.register_blueprint(main)
+
+    return app
