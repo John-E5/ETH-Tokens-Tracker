@@ -139,6 +139,11 @@ tr {
     background-color: #090909;
 }
 
+@media only screen and (max-width : 510px) {
+    .home-footer {
+        height: 450px;
+    }
+}
 .rotate-left {
     padding-bottom: 50px;
     transform: rotate(-15deg);
@@ -155,9 +160,4 @@ tr {
 .social-links li {
     display: inline-block;
     padding: 50px;
-}
-/*---------------------------------------------------------token Page*/
-
-.token-table {
-    margin-bottom: 400px;
 }
