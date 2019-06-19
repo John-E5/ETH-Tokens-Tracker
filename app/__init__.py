@@ -4,8 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_toastr import Toastr
+from flask_heroku import Heroku
 from app.config import Config
 
+
+heroku = Heroku()
 # App config and database init
 db = SQLAlchemy()
 
@@ -30,8 +33,10 @@ toastr = Toastr()
 def create_app(config_class=Config):
     app = Flask(__name__, template_folder='templates')
     app.config.from_object(Config)
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
+    heroku.init_app(app)
     bcrypt.init_app(app)
     login_manager.init_app(app)
     toastr.init_app(app)
