@@ -9,6 +9,7 @@ from app.config import Config
 
 
 heroku = Heroku()
+
 # App config and database init
 db = SQLAlchemy()
 
@@ -26,8 +27,6 @@ token_data = json.load(open(json_data))
 
 
 toastr = Toastr()
-
-# Import routes after app has been init
 
 
 def create_app(config_class=Config):
