@@ -30,6 +30,8 @@ toastr = Toastr()
 
 
 def create_app(config_class=Config):
+    """ app creation - set template folder and init app and blueprints"""
+
     app = Flask(__name__, template_folder='templates')
     app.config.from_object(Config)
 

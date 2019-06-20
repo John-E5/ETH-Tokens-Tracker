@@ -6,11 +6,13 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from app.models import User
 
 
+# Login form
 class LoginForm(FlaskForm):
     email = EmailField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
 
 
+# Update profile form and validation
 class UpdateProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = EmailField('Email', validators=[DataRequired(), Email()])
@@ -28,6 +30,7 @@ class UpdateProfileForm(FlaskForm):
                 raise ValidationError('That email is taken, Please choose another.')
 
 
+# Register form and validation
 class RegistrationForm(UpdateProfileForm):
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])

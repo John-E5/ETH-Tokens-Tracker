@@ -18,6 +18,7 @@ main = Blueprint('main', __name__)
 @main.route('/')
 @main.route('/home')
 def index():
+    """ Landing page - Loop token images from tokenData json file """
     token_image = [(token['image']) for token in token_data['tokens']]
     return render_template('home.html', token_image=token_image)
 
@@ -25,6 +26,7 @@ def index():
 @main.route('/portfolio_stats')
 @login_required
 def portfolio_stats():
+    """ Charts route """
 
     # Load data
     user_token = dict(db.session.query(UsersTokens.tokens, UsersTokens.token_amount).filter_by(user=current_user).all())

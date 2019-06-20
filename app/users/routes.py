@@ -8,13 +8,14 @@ from app import db, bcrypt
 from app.users.forms import RegistrationForm, LoginForm, UpdateProfileForm
 from app.models import User
 
-
+# Set users blueprint
 users = Blueprint('users', __name__)
 
 
 # Registration
 @users.route('/register', methods=['GET', 'POST'])
 def register():
+    """ register route """
     if current_user.is_authenticated:
         return redirect(url_for('tokens.dashboard'))
 
@@ -33,6 +34,7 @@ def register():
 # Login
 @users.route('/login', methods=['GET', 'POST'])
 def login():
+    """ Login route """
     if current_user.is_authenticated:
         return redirect(url_for('tokens.dashboard'))
 
@@ -52,6 +54,7 @@ def login():
 # Logout
 @users.route('/logout')
 def logout():
+    """ Logout route """
     logout_user()
 
     return render_template('home.html')
@@ -61,7 +64,7 @@ def logout():
 @users.route('/profile_page', methods=['GET', 'POST'])
 @login_required
 def profile_page():
-
+    """ Profile page route """
     form = UpdateProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data

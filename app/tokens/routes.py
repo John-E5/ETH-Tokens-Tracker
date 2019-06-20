@@ -8,12 +8,16 @@ from app import db, token_data
 from app.tokens.forms import AddTokenForm, UpdateTokenForm
 from app.models import UsersTokens
 
+
+# Set tokens blueprint
 tokens = Blueprint('tokens', __name__)
 
 # Dashboard
 @tokens.route('/dashboard')
 @login_required
 def dashboard():
+    """ Dashboard pagination and looping user db data """
+
     page = request.args.get('page', 1, type=int)
     users_token = UsersTokens.query.filter_by(user=current_user).order_by(UsersTokens.buy_date).paginate(page=page, per_page=6)
 
@@ -24,6 +28,7 @@ def dashboard():
 @tokens.route('/token/new', methods=['GET', 'POST'])
 @login_required
 def add_token():
+    """ Add token route """
 
     form = AddTokenForm()
     if form.validate_on_submit():
@@ -44,6 +49,8 @@ def add_token():
 @tokens.route('/token/<int:id>')
 @login_required
 def token(id):
+    """ Single token route """
+
     token = UsersTokens.query.get_or_404(id)
 
     return render_template('token.html', token=token)
@@ -53,6 +60,8 @@ def token(id):
 @tokens.route('/edit_token/<int:id>/edit', methods=['GET', 'POST'])
 @login_required
 def edit_token(id):
+    """ Edit token route and get token data from add token """
+
     token = UsersTokens.query.get_or_404(id)
 
     form = UpdateTokenForm()
@@ -77,6 +86,8 @@ def edit_token(id):
 @tokens.route('/dashboard/<int:id>/delete_token')
 @login_required
 def delete_token(id):
+    """ delete token route"""
+
     token = UsersTokens.query.get_or_404(id)
     db.session.delete(token)
     db.session.commit()

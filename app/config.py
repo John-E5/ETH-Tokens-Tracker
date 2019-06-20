@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 
 
 class Config:
+    """ Load env vars and app config """
+
     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
     dotenv_path = os.path.join(SITE_ROOT, '.env')
     load_dotenv(dotenv_path)
