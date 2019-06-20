@@ -33,7 +33,6 @@ toastr = Toastr()
 def create_app(config_class=Config):
     app = Flask(__name__, template_folder='templates')
     app.config.from_object(Config)
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
     heroku.init_app(app)
