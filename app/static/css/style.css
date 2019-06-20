@@ -28,6 +28,15 @@ nav {
     }
 }
 
+.btn i,
+.btn-large i,
+.btn-small i,
+.btn-floating i,
+.btn-large i,
+.btn-small i,
+.btn-flat i {
+    line-height: initial;
+}
 
 /*---------------------------------------------------------sidenav*/
 
