@@ -34,7 +34,7 @@ def add_token():
                             user=current_user)
         db.session.add(token)
         db.session.commit()
-        flash('Token Added')
+        flash('Token Added', 'success')
         return redirect(url_for('tokens.dashboard'))
 
     return render_template('add_token.html', form=form, token_data=token_data)
@@ -61,7 +61,7 @@ def edit_token(id):
         token.token_price = form.token_price.data
         token.buy_date = form.buy_date.data
         db.session.commit()
-        flash('Token Updated')
+        flash('Token Updated', 'success')
         return redirect(url_for('tokens.dashboard', id=token.id))
 
     elif request.method == 'GET':
@@ -80,7 +80,7 @@ def delete_token(id):
     token = UsersTokens.query.get_or_404(id)
     db.session.delete(token)
     db.session.commit()
-    flash('Token Deleted')
+    flash('Token Deleted', 'info')
 
     return redirect(url_for('tokens.dashboard'))
 
