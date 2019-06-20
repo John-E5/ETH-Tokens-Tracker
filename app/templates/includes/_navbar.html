@@ -5,9 +5,9 @@
         <ul id="nav-mobile" class="col s12 right hide-on-med-and-down">
             {% if current_user.is_authenticated %}
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.profile_page') }}">
-                    <i class="material-icons tiny prefix">person_pin</i></a></li>
+                    <i class="material-icons tiny prefix nav-color">person_pin</i></a></li>
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.logout') }}">
-                    <i class="material-icons tiny prefix">exit_to_app</i></a></li>
+                    <i class="material-icons tiny prefix nav-color">exit_to_app</i></a></li>
             {% else %}
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.register') }}">Register</a></li>
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.login') }}">Login</a></li>

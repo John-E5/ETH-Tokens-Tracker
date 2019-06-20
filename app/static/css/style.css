@@ -6,6 +6,9 @@ body {
     font-family: 'Share Tech Mono', monospace;
 }
 
+input {
+    color: white;
+}
 .material-icons {
     color: #d60a00;
 }
@@ -13,6 +16,10 @@ body {
 nav {
     background-color: #090909;
     color: white;
+}
+
+.nav-color {
+    color: black;
 }
 
 @media only screen and (max-width : 510px) {
@@ -61,7 +68,7 @@ main {
 }
 
 .sidenav li > a > i.material-icons {
-    color: #d60a00;
+    color: white;
 }
 
 
