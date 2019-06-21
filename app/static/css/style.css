@@ -180,3 +180,10 @@ tr {
     display: inline-block;
     padding: 50px;
 }
+
+
+
+html {
+    visibility: visible;
+    opacity: 1;
+}
