@@ -8,8 +8,8 @@
                 <tr>
                     <th>Token</th>
                     <th>Holdings</th>
-                    <th>Price(BTC)</th>
-                    <th>Date</th>
+                    <th class="hide-on-small-only">Price(BTC)</th>
+                    <th class="hide-on-small-only">Date</th>
                     <th>Value(BTC)</th>
                 </tr>
             </thead>
@@ -18,8 +18,8 @@
                 <tr>
                     <td>{{ token.tokens }}</td>
                     <td>{{ token.token_amount }}</td>
-                    <td>{{ token.token_price }}</td>
-                    <td>{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
+                    <td class="hide-on-small-only">{{ token.token_price }}</td>
+                    <td class="hide-on-small-only">{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
                     <td>{{ token.token_price * token.token_amount }}</td>
                     <td><a href="{{ url_for('tokens.token', id=token.id) }}" class="btn waves-effect waves-light badge">View<i class="material-icons">keyboard_arrow_right</i></a></td>
                 </tr>
