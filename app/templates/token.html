@@ -3,11 +3,15 @@
     {% include 'includes/_sidenav.html' %}
 
     {% block body %}
+
+        <!-- Single token table -->
         <table class="highlight centered token-table col s12">
             <thead>
                 <tr>
                     <th>Token</th>
                     <th>Holdings</th>
+
+                    <!-- Hide on small to fit table on mobile -->
                     <th class="hide-on-small-only">Price(BTC)</th>
                     <th class="hide-on-small-only">Date</th>
                     <th>Value(BTC)</th>
@@ -17,14 +21,18 @@
                 <tr>
                     <td>{{ token.tokens }}</td>
                     <td>{{ token.token_amount }}</td>
+
+                    <!-- Hide on small to fit table on mobile -->
                     <td class="hide-on-small-only">{{ token.token_price }}</td>
                     <td class="hide-on-small-only">{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
+
+                    <!-- Getting value of tokens -->
                     <td>{{ token.token_price * token.token_amount }}</td>
                     <td><a href="{{ url_for('tokens.edit_token', id=token.id) }}" class="btn-tiny waves-effect waves-light"><i class="material-icons">edit</i></a></td>
                     <td><a href="" class="btn-tiny waves-effect waves-light modal-trigger" data-target="modal1"><i class="material-icons">delete_forever</i></a></td>
                 </tr>
             </tbody>
-            <!-- Modal Structure -->
+            <!-- Delete token Modal Structure -->
             <div id="modal1" class="modal col s12">
                 <div class="modal-content">
                     <h4>Are You Sure You Want to Delete Token?</h4>

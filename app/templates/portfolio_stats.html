@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
     {% include 'includes/_navbar.html' %}
     {% include 'includes/_sidenav.html' %}
+
     {% block body %}
+
+        <!-- Charts -->
         <h3 class="center">Portfolio Statistics</h3>
         <p class="center">Visualize details of your holdings and value</p>
         <div class="container-fluid">
             <div class="row">
+                <!-- Piechart -->
                 <div class="container pie col s12 m6">
                     <embed type="image/svg+xml" src={{pie_graph|safe}} style='max-width:500px'/>
                 </div>
+
+                <!-- Barchart -->
                 <div class="container bar col s12 m6">
                     <embed type="image/svg+xml" src={{bar_graph|safe}} style='max-width:600px'/>
                 </div>
             </div>
+
+            <!-- Treemap chart -->
             <div class="row">
                 <div class="container tree col s12">
                     <embed type="image/svg+xml" src={{tree_map|safe}} style='max-width:1000px'/>

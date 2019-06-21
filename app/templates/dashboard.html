@@ -3,29 +3,40 @@
     {% include 'includes/_sidenav.html' %}
 
     {% block body %}
+
+        <!-- Dashboard table -->
         <table class="highlight centered col s12">
             <thead>
                 <tr>
                     <th>Token</th>
                     <th>Holdings</th>
+
+                    <!-- Hide on small to fit table on mobile -->
                     <th class="hide-on-small-only">Price(BTC)</th>
                     <th class="hide-on-small-only">Date</th>
                     <th>Value(BTC)</th>
                 </tr>
             </thead>
+            <!-- Loop through db to get users tokens -->
             {% for token in users_token.items %}
             <tbody>
                 <tr>
                     <td>{{ token.tokens }}</td>
                     <td>{{ token.token_amount }}</td>
+
+                    <!-- Hide on small to fit table on mobile -->
                     <td class="hide-on-small-only">{{ token.token_price }}</td>
                     <td class="hide-on-small-only">{{ token.buy_date.strftime('%Y-%m-%d') }}</td>
+
+                    <!-- Getting value of tokens -->
                     <td>{{ token.token_price * token.token_amount }}</td>
                     <td><a href="{{ url_for('tokens.token', id=token.id) }}" class="btn waves-effect waves-light badge">View<i class="material-icons">keyboard_arrow_right</i></a></td>
                 </tr>
             </tbody>
             {% endfor %}
         </table>
+
+        <!-- Pagination -->
         {% for page_num in users_token.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
             {% if page_num %}
                 {% if users_token.page == page_num %}

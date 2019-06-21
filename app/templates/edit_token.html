@@ -2,11 +2,16 @@
     {% include 'includes/_navbar.html' %}
     {% include 'includes/_sidenav.html' %}
 
+<!-- Edit token form -->
     {% block body %}
         <div class="container col s12">
             <div class="row">
                 <form method="POST">
+
+                    <!-- csrf tag -->
                     {{ form.hidden_tag() }}
+
+                    <!-- Token name field -->
                     <div class="input-field">
                         <i class="material-icons prefix">collections</i>
                         {% if form.tokens.errors %}
@@ -21,6 +26,8 @@
                         {% endif %}
                         <label for="tokens">Choose Token</label>
                     </div>
+
+                    <!-- Token amount field -->
                     <div class="input-field">
                         <i class="material-icons prefix">work</i>
                         {{ form.token_amount.label }}
@@ -35,6 +42,8 @@
                             {{ form.token_amount }}
                         {% endif %}
                     </div>
+
+                    <!-- Token price field -->
                     <div class="input-field">
                         <i class="material-icons prefix">monetization_on</i>
                         {{ form.token_price.label }}
@@ -49,6 +58,8 @@
                             {{ form.token_price }}
                         {% endif %}
                     </div>
+
+                    <!-- Date field -->
                     <div class="input-field">
                         <i class="material-icons prefix">date_range</i>
                         {{ form.buy_date.label }}
@@ -63,6 +74,8 @@
                             {{ form.buy_date(class="datepicker") }}
                         {% endif %}
                     </div>
+
+                    <!-- Submit button -->
                     <button class="btn waves-effect waves-light" type="submit" name="action">Update Token
                         <i class="material-icons right">playlist_add</i></button>
                 </form>

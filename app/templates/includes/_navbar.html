@@ -1,14 +1,17 @@
+<!-- Navbar partial -->
 <nav class="col s12">
     <div class="nav-wrapper">
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <a href="/" class="brand-logo center">Token Portfolio</a>
         <ul id="nav-mobile" class="col s12 right hide-on-med-and-down">
+            <!-- show if user is logged in  -->
             {% if current_user.is_authenticated %}
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.profile_page') }}">
                     <i class="material-icons tiny prefix nav-color">person_pin</i></a></li>
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.logout') }}">
                     <i class="material-icons tiny prefix nav-color">exit_to_app</i></a></li>
             {% else %}
+                <!-- show if logged out or new user -->
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.register') }}">Register</a></li>
                 <li><a class="waves-effect waves-light btn" href="{{ url_for('users.login') }}">Login</a></li>
             {% endif %}
