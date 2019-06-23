@@ -53,13 +53,29 @@ Sections included - issues, to Do, in Progress, completed, bugs.
     3. Complete task and tick off list
     4. Once all tasks completed move card to be completed and close issue
 
-##### See screenshots for reference:
+##### Screenshots for reference:
 
 1. ![GitKraken](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/gitkraken1.png)
 2. ![GitKraken](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/gitkraken2.png)
 3. ![Glo-Board-1](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/glo-board-tracker.png)
 4. ![Glo-Board-2](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/glo-board-eth.png)
 
+## Database Schema
+For this app i decided to use postgreSQL for this project with SQLalchemy as the ORM,
+The app only required 2 tables Users and UsersTokens which hold a relationship via foreign key to user id.
+
+A third table 
+could be 
+added 
+for 
+the token data instead of 
+using
+ json data, I decided to leave the token data as a json file for the moment as it is static data and doesn't need to 
+ be updated by the user when live price data and the addition of custom tokens addition is introduced a third 
+ table would be used to store the token data with a relationship to the userstokens table
+
+![database](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/db_schema.png)  
+  
 ## Features
 
 ### Desktop/Tablet View
@@ -158,8 +174,8 @@ For this project the following Technologies were used:
 - [JINJA2](http://jinja.pocoo.org/docs/2.10/)
     - The project uses **Jinja2** as the templating language for this app
 
-- [POSTGRESSQL](https://www.postgresql.org/)
-    - The project uses **PostgresSQL** as the database for this app
+- [POSTGRESQL](https://www.postgresql.org/)
+    - The project uses **PostgreSQL** as the database for this app
 
 - [SQLALCHEMY](https://www.sqlalchemy.org/)
     - The project uses **SQLalchemy** as the ORM for this app
@@ -230,21 +246,6 @@ Testing for this project was done with several browsers and devices.
 
 Firefox developer edition and chrome dev-tools were used during development and for manual testing of the site responsiveness 
 The devices and browsers listed above were used to test the app on different screen sizes and devices.
-
-#### To Manually Test
-
-
-
-
-##### Navigation Testing
-
-
-
-### Validation Testing
-
-- For _HTML_ validation testing I used [W3 Validator]() which shows the html document to be valid.
-
-- For _CSS_ validation testing I used [W3 CSS Validator]() which shows the stylesheet to be valid CSS3.
 
 ## Deployment
 
