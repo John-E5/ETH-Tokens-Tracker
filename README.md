@@ -1,6 +1,6 @@
 # Ethereum Tokens Tracker
 Third milestone project for code institute full stack developer course, Data Centric Development section.
-THis is a web app for tracking your ethereum tokens.
+This is a web app for tracking your ethereum tokens.
 The app consists of a Landing, Registration, Login, Dashboard pages and a Stats page,
 Which allows users to Create, Read, Update and Delete their tokens data.
 
@@ -15,6 +15,7 @@ Users can select from a list of the top 50 ethereum tokens and add the price the
 For this app i decided to use material design principals and utilized the materialize.css framework for the front end
  of the app adding custom css styles to override values where needed.
  I initially was going to use a black background but later felt it was too dark so opted for a dark blue color instead.
+For the home page i used a gradient background that changes from light blue to dark blue.
 
 ### User Stories
 As a User, Investor or [Hodler](https://en.wikipedia.org/wiki/Hodl) of ethereum tokens, I would like to:
@@ -54,10 +55,10 @@ Sections included - issues, to Do, in Progress, completed, bugs.
 
 ##### See screenshots for reference:
 
-1. [GitKraken](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/gitkraken1.png)
-2. [GitKraken](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/gitkraken2.png)
-3. [Glo-Board-1](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/glo-board-tracker.png)
-4. [Glo-Board-2](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/glo-board-eth.png)
+1. ![GitKraken](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/gitkraken1.png)
+2. ![GitKraken](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/gitkraken2.png)
+3. ![Glo-Board-1](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/glo-board-tracker.png)
+4. ![Glo-Board-2](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/glo-board-eth.png)
 
 ## Features
 
