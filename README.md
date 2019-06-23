@@ -64,6 +64,9 @@ Sections included - issues, to Do, in Progress, completed, bugs.
 For this app i decided to use postgreSQL for this project with SQLalchemy as the ORM,
 The app only required 2 tables Users and UsersTokens which hold a relationship via foreign key to user id.
 
+![database](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/db_schema.png)  
+  
+  
 A third table 
 could be 
 added 
@@ -74,8 +77,8 @@ using
  be updated by the user when live price data and when the addition of custom tokens is introduced a third 
  table would be used to store the token data with a relationship to the userstokens table
 
-![database](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/db_schema.png)  
-  
+![tokenData](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/app/static/data/tokensData.json)
+
 ## Features
 
 ### Desktop/Tablet View
