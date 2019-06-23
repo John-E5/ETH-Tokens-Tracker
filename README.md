@@ -71,7 +71,7 @@ for
 the token data instead of 
 using
  json data, I decided to leave the token data as a json file for the moment as it is static data and doesn't need to 
- be updated by the user when live price data and the addition of custom tokens addition is introduced a third 
+ be updated by the user when live price data and when the addition of custom tokens is introduced a third 
  table would be used to store the token data with a relationship to the userstokens table
 
 ![database](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/db_schema.png)  
@@ -249,13 +249,44 @@ The devices and browsers listed above were used to test the app on different scr
 
 ## Deployment
 
-- 
-- To run this app locally clone or download the repo and open index.html to view in browser.
+### To run this app locally
 
+* Clone the repo
+* Set up your virtual environment 
+* In the repo root run pip3 install requirements.txt to install all the projects dependencies 
+* Open the terminal and run python3 run.py
+* Then open 127.0.0.1 in your browser to view the running app
+
+### To deploy to heroku
+
+* Clone the repo
+* Set up your virtual environment 
+* In the repo root run pip3 install requirements.txt to install all the projects dependencies 
+
+* In the terminal run heroku login to log into your heroku account
+* Then in terminal:
+    * Add app to heroku
+        - heroku create app <token-tracker>
+    * Add postgres to heroku
+        - heroku addons:add heroku-postgresql:dev
+        
+        ### To Create db 
+        #### In terminal: heroku run python
+         - from app import create_app, db
+         - app = create_app()
+         - app.app.context.push()
+         - db.create_all()
+    * Go to heroku.com and Add config/env vars
+        - Postgres uri
+        - Secret key 
+          
+    * Commit and the push the changes to heroku
+        - git push heroku master
+        
+        
 ## Credits
+* Corey Schafer on youtube https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g
+* Brad Traversy on youtube https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA
+* Home page background css gradient https://www.gradient-animator.com/
+* Students Miro, Johnl3 from slack and the code institute tutor team for all their help
 
-### Content
-- 
-
-
-### Acknowledgements
