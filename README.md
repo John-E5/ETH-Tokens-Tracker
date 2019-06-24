@@ -77,7 +77,7 @@ using
  be updated by the user when live price data and when the addition of custom tokens is introduced a third 
  table would be used to store the token data with a relationship to the userstokens table
 
-![tokenData](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/app/static/data/tokensData.json)
+![tokenData](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/app/static/data/tokensData.json) JSON file
 
 ## Features
 
@@ -220,7 +220,75 @@ i then tested the routes for the html elements of each route to see if they were
 
 ![tests](https://github.com/John-E5/ETH-Tokens-Tracker/blob/master/media/testing1.png)
 ### Manual Testing
+For testing this app use login details: test@test.com, password: 1234,
 
+To see pre-filled token info
+
+To manually test this app go to:
+####
+    Home page
+    1. Go to home page
+    2. scroll down to see the section reveal
+    3. See background slowing change color
+    
+####
+    Registration page
+    1. Go to register page
+    2. Fill in the form
+    3. Leave out some elements to see validation checks
+
+####
+    Login page
+    1. Go to login page
+    2. Try to add incorrect data and see validation
+    3. See toast messsages for incorrect actions and when successful
+    4. Use login details from above
+    
+####
+    Dashboard page 
+    1. See table with tokens data hover over rows to see the highlighting effect
+    2. Click sidenav links to be directed to other pages
+    3. Click View button to see token page
+####
+    Token page
+    1. See Token in row with edit and delete icons
+    2. Click edit to go to edit token page
+    3. Click delete to see pop up modal
+    
+####
+    Add Token page
+    1. Click sidenav add token link
+    2. See add token form
+    3. click choose token to see list of 50 tokens to choose from
+    4. Select a token
+    5. Add Price eg. 0.0002
+    6. Add Amount
+    7. Click date field see datepicker pop up to select date
+    8. Click add token button to submit the values
+    
+####
+    Edit Token page
+    1. From token page(click edit token icon)
+    2. See pre-filled form with old token values
+    3. Change values
+    4. Click submit
+    5. See updated values in dashboard 
+
+####
+    Profile Page
+    1. Click profile in sidenav
+    2. See a form with email and username
+    3. Change values to see updated profile(If using login from above please revert to test@test.com)
+    
+####
+    Stats page
+    1. Click Stats in sidenav
+    2. See piechart, barchart and treemap rendered
+    3. Click slices, bars or sections of map to see values of tokens data
+    
+####
+    Logout
+    1. Click logout to be logged out  
 Testing for this project was done with several browsers and devices.
 
 #### Browsers
@@ -254,37 +322,38 @@ The devices and browsers listed above were used to test the app on different scr
 
 ### To run this app locally
 
-* Clone the repo
-* Set up your virtual environment 
-* In the repo root run pip3 install requirements.txt to install all the projects dependencies 
-* Open the terminal and run python3 run.py
-* Then open 127.0.0.1 in your browser to view the running app
+####
+    * Clone the repo
+    * Set up your virtual environment 
+    * In the repo root run pip3 install requirements.txt to install all the projects dependencies 
+    * Open the terminal and run python3 run.py
+    * Then open 127.0.0.1 in your browser to view the running app
 
 ### To deploy to heroku
-
-* Clone the repo
-* Set up your virtual environment 
-* In the repo root run pip3 install requirements.txt to install all the projects dependencies 
-
-* In the terminal run heroku login to log into your heroku account
-* Then in terminal:
-    * Add app to heroku
-        - heroku create app <token-tracker>
-    * Add postgres to heroku
-        - heroku addons:add heroku-postgresql:dev
-        
-        ### To Create db 
-        #### In terminal: heroku run python
-         - from app import create_app, db
-         - app = create_app()
-         - app.app.context.push()
-         - db.create_all()
-    * Go to heroku.com and Add config/env vars
-        - Postgres uri
-        - Secret key 
-          
-    * Commit and the push the changes to heroku
-        - git push heroku master
+####
+    * Clone the repo
+    * Set up your virtual environment 
+    * In the repo root run pip3 install requirements.txt to install all the projects dependencies 
+    
+    * In the terminal run heroku login to log into your heroku account
+    * Then in terminal:
+        * Add app to heroku
+            - heroku create app <token-tracker>
+        * Add postgres to heroku
+            - heroku addons:add heroku-postgresql:dev
+            
+             To Create db 
+             In terminal: heroku run python
+             - from app import create_app, db
+             - app = create_app()
+             - app.app.context.push()
+             - db.create_all()
+        * Go to heroku.com and Add config/env vars
+            - Postgres uri
+            - Secret key 
+              
+        * Commit and the push the changes to heroku
+            - git push heroku master
         
         
 ## Credits
